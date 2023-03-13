@@ -1,3 +1,38 @@
 <resources>
     <string name="app_name">Hotel_Wallet</string>
+
+    <string name="title_onboarding_1">Work at Home</string>
+    <string name="description_onboarding_1">Work at home to more comfort. Make a great projects with this app</string>
+    <string name="title_onboarding_2">Analyse Your Project</string>
+    <string name="description_onboarding_2">Smart details for analysis. Do more with this app</string>
+    <string name="title_onboarding_3">Achieve Your Goals</string>
+    <string name="description_onboarding_3">Achieve your goals more easily. This app will help with that</string>
+
+    <!-- *********** Text *********** -->
+    <string name="txt_dynamic_text">%s</string>
+    <string name="txt_menu">Menu</string>
+    <string name="txt_prix">Prix</string>
+    <string name="txt_name">Hi Oussama</string>
+    <string name="txt_amount">1000 D</string>
+    <string name="txt_title_amount">your pay is</string>
+    <string name="txt_Title_service">Services</string>
+
+    <!-- *********** Menu *********** -->
+    <string name="txt_home">Home</string>
+    <string name="txt_category">Category</string>
+    <string name="txt_profile">Profile</string>
+    <string name="txt_settings">Settings</string>
+
+    <!-- *********** Title *********** -->
+
+    <!-- *********** Button *********** -->
+    <string name="txt_btn_skip">Skip</string>
+    <string name="txt_btn_next">Next</string>
+    <string name="txt_btn_go">Go</string>
+    <string name="txt_btn_back">Back</string>
+    <string name="txt_btn_ok">OK</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- *********** Message *********** -->
+
 </resources>

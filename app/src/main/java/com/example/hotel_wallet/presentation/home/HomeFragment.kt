@@ -1,61 +1,41 @@
 package com.example.hotel_wallet.presentation.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
-import androidx.navigation.Navigation
-import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.NavigationUI
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import com.denzcoskun.imageslider.constants.ScaleTypes
 import com.example.hotel_wallet.R
 import com.example.hotel_wallet.databinding.FragmentHomeBinding
-import com.example.hotel_wallet.domain.model.Service
 import com.denzcoskun.imageslider.models.SlideModel
+import com.example.hotel_wallet.domain.model.Services
 import com.example.hotel_wallet.presentation.misc.BaseFragment
-import com.example.hotel_wallet.utility.CATEGORY_EAT
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.example.hotel_wallet.utility.Resource
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 
-@AndroidEntryPoint
 class HomeFragment : BaseFragment<FragmentHomeBinding>(
     FragmentHomeBinding::inflate
 ) {
 
+    private val homeViewModel by activityViewModels<HomeViewModel>()
     private lateinit var homeAdapter: HomeAdapter
-    private var menuList = mutableListOf<Service>()
+    private var menuList = mutableListOf<Services>()
     val imageList = ArrayList<SlideModel>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.bottomNavigationView.background = null
-        binding.bottomNavigationView.menu.getItem(2).isEnabled = false
-
-        val bottomNavigation =
-            requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-        val navController = Navigation.findNavController(requireActivity(), R.id.fragment)
-
-        NavigationUI.setupWithNavController(bottomNavigation, navController)
-
-
-        homeAdapter = HomeAdapter(menuList) { type ->
-            if (type.type == CATEGORY_EAT) {
-//                findNavController().navigate(R.id.action_homeFragment_to_menuFragment)
-            } else {
-//                findNavController().navigate(R.id.action_homeFragment_to_gymFragment)
-
-            }
-        }
-        binding.customToolbar.imgNotification.setOnClickListener {
-//            findNavController().navigate(R.id.action_homeFragment_to_profileFragment)
-        }
-
-        setSlideList()
+        setBottomNavigation(true)
+        homeAdapter = HomeAdapter(menuList)
         binding.recyclerViewHome.setHasFixedSize(true)
         binding.recyclerViewHome.isNestedScrollingEnabled = false
         binding.recyclerViewHome.adapter = homeAdapter
+        homeViewModel.getServices()
+        observeServices()
 
         imageList.clear()
         imageList.add(SlideModel(R.drawable.img_hotel1, "Amir Palace"))
@@ -72,7 +52,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(
                 filterList(query)
                 val bundle = Bundle()
                 bundle.putString("query", query)
-//                findNavController().navigate(R.id.action_homeFragment_to_searchFragment)
                 return false
             }
 
@@ -84,14 +63,37 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(
 
     }
 
+    private fun observeServices() {
+        lifecycleScope.launchWhenStarted {
+            homeViewModel.stateServices.observe(viewLifecycleOwner) {
+                when (it) {
+                    is Resource.Loading -> {
+                        setLoading(true)
+                    }
+                    is Resource.Success -> {
+                        it.data.apply {
+                            menuList.clear()
+                            menuList.addAll(this)
+                            homeAdapter.notifyDataSetChanged()
+
+                        }
+                        setLoading(false)
+                    }
+                    is Resource.Error -> {
+                        setLoading(false)
+                    }
+                }
+            }
+        }
+    }
 
 
     private fun filterList(query: String?) {
 
         if (query != null) {
-            val filteredList = ArrayList<Service>()
+            val filteredList = ArrayList<Services>()
             for (i in menuList) {
-                if (i.title.lowercase(Locale.ROOT).contains(query)) {
+                if (i.nom.lowercase(Locale.ROOT).contains(query)) {
                     filteredList.add(i)
                 }
             }
@@ -102,44 +104,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(
                 homeAdapter.setFilteredList(filteredList)
             }
         }
-    }
-
-    private fun setSlideList() {
-        menuList.add(
-            Service(
-                R.drawable.img_pizza,
-                "Restaurant",
-                1
-            )
-        )
-        menuList.add(
-            Service(
-                R.drawable.img_pizza,
-                "Salle De Sport",
-                2
-            )
-        )
-        menuList.add(
-            Service(
-                R.drawable.img_pizza,
-                "Restaurant",
-                1
-            )
-        )
-        menuList.add(
-            Service(
-                R.drawable.img_pizza,
-                "Salle De Sport ",
-                2
-            )
-        )
-        menuList.add(
-            Service(
-                R.drawable.img_pizza,
-                "Salle De Sport ",
-                2
-            )
-        )
     }
 
 }

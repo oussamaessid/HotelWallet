@@ -3,8 +3,12 @@ package com.example.hotel_wallet.presentation.misc
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.Navigation
+import androidx.navigation.ui.NavigationUI
+import com.example.hotel_wallet.R
 import com.example.hotel_wallet.databinding.ActivityMainBinding
 import com.example.hotel_wallet.utility.TAG_ALERT_DIALOG_ERROR
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -19,6 +23,19 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    fun setBottomNavigation(isNavigation: Boolean ){
+        if (isNavigation) {
+            binding.bottomNavContent.visibility = View.VISIBLE
+            val bottomNavigation = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+            val navController = Navigation.findNavController(this, R.id.mainNavHostContainer)
+
+            NavigationUI.setupWithNavController(bottomNavigation, navController)
+        }
+        else {
+            binding.bottomNavContent.visibility = View.GONE
+
+        }
+    }
     fun setLoading(isLoading: Boolean) {
         if (isLoading) {
             binding.loadingView.root.visibility = View.VISIBLE

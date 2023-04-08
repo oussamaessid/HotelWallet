@@ -5,12 +5,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.hotel_wallet.databinding.RowItemCategoryBinding
-import com.example.hotel_wallet.domain.model.Service
+import com.example.hotel_wallet.domain.model.Services
 
 
 class HomeAdapter(
-    private var menuList: List<Service>,
-    private val listener: (Service) -> Unit
+    private var menuList: List<Services>,
 ) : RecyclerView.Adapter<HomeAdapter.MenuViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MenuViewHolder {
@@ -22,14 +21,10 @@ class HomeAdapter(
     override fun onBindViewHolder(holder: MenuViewHolder, position: Int) {
         with(holder) {
             with(menuList[position]) {
-                binding.txtCategoryName.text = title
+                binding.txtCategoryName.text = nom
                 Glide.with(itemView)
                     .load(image)
                     .into(binding.imgCategory)
-
-                itemView.setOnClickListener {
-                    listener(this)
-                }
             }
 
         }
@@ -39,14 +34,13 @@ class HomeAdapter(
         return menuList.size
     }
 
-    fun setFilteredList(menuList: List<Service>) {
+    fun setFilteredList(menuList: List<Services>) {
         this.menuList = menuList
         notifyDataSetChanged()
     }
 
     inner class MenuViewHolder(val binding: RowItemCategoryBinding) :
         RecyclerView.ViewHolder(binding.root)
-
 
 }
 

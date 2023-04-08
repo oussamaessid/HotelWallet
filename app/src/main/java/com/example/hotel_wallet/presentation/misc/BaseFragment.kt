@@ -27,6 +27,9 @@ abstract class BaseFragment<VB : ViewBinding>(
         return binding.root
     }
 
+    fun setBottomNavigation(navigation: Boolean) {
+        (activity as MainActivity).setBottomNavigation(navigation)
+    }
     fun setLoading(loading: Boolean) {
         (activity as MainActivity).setLoading(loading)
     }

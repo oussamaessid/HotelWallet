@@ -1,6 +1,6 @@
-package com.example.hotel_wallet.data.model
+package com.example.hotelwallet.data.model
 
-data class ServiceDto(
+data class ServiceDto (
     val id_service: Int,
     val nom: String,
     val description: String,

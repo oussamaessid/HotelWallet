@@ -1,7 +1,7 @@
-package com.example.hotel_wallet.data.mapper
+package com.example.hotelwallet.data.mapper
 
-import com.example.hotel_wallet.domain.model.Services
-import com.example.hotel_wallet.data.model.ServiceDto
+import com.example.hotelwallet.data.model.ServiceDto
+import com.example.hotelwallet.domain.model.Services
 import javax.inject.Inject
 
 class ServiceMapper @Inject constructor() :

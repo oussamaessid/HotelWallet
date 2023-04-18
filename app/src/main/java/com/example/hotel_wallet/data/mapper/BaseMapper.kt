@@ -1,4 +1,4 @@
-package com.example.hotel_wallet.data.mapper
+package com.example.hotelwallet.data.mapper
 
 
 

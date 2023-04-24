@@ -1,7 +1,7 @@
-package com.example.hotelwallet.data.mapper
+package com.example.hotel_wallet.data.mapper
 
-import com.example.hotelwallet.data.model.GymDto
-import com.example.hotelwallet.domain.model.Gym
+import com.example.hotel_wallet.data.model.GymDto
+import com.example.hotel_wallet.domain.model.Gym
 import javax.inject.Inject
 
 class GymMapper @Inject constructor() :

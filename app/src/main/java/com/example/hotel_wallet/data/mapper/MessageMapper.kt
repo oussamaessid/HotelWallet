@@ -1,7 +1,7 @@
-package com.example.hotelwallet.data.mapper
+package com.example.hotel_wallet.data.mapper
 
-import com.example.hotelwallet.data.model.MessageDto
-import com.example.hotelwallet.domain.model.Message
+import com.example.hotel_wallet.data.model.MessageDto
+import com.example.hotel_wallet.domain.model.Message
 import javax.inject.Inject
 
 class MessageMapper @Inject constructor() :

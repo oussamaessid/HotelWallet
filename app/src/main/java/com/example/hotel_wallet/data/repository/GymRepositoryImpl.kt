@@ -1,14 +1,11 @@
-package com.example.hotelwallet.data.repository
+package com.example.hotel_wallet.data.repository
 
 import android.util.Log
-import com.example.hotelwallet.data.mapper.GymMapper
-import com.example.hotelwallet.data.mapper.MenuItemMapper
-import com.example.hotelwallet.data.source.remote.Api
-import com.example.hotelwallet.domain.model.Gym
-import com.example.hotelwallet.domain.model.MenuItem
-import com.example.hotelwallet.domain.repository.GymRepository
-import com.example.hotelwallet.domain.repository.MenuRepository
-import com.example.hotelwallet.utility.Resource
+import com.example.hotel_wallet.data.mapper.GymMapper
+import com.example.hotel_wallet.domain.model.Gym
+import com.example.hotel_wallet.domain.model.GymRepository
+import com.example.hotel_wallet.utility.Resource
+import com.example.hotel_wallet.data.source.remote.Api
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException
@@ -25,7 +22,7 @@ class GymRepositoryImpl @Inject constructor(
             val categoriesResponse = gymMapper.mapList(
                 api.getGym(category).plans
             )
-            Log.println(Log.ASSERT,"categoriesResponse",categoriesResponse.toString())
+            Log.println(Log.ASSERT, "categoriesResponse", categoriesResponse.toString())
             emit(Resource.Success(categoriesResponse))
         } catch (e: HttpException) {
             emit(Resource.Error(e.localizedMessage ?: "An unexpected error occurred."))

@@ -1,7 +1,8 @@
-package com.example.hotelwallet.data.source.local
+package com.example.hotel_wallet.data.source.local
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.example.hotel_wallet.data.source.local.Basket
 
 @Dao
 interface BasketsDao {

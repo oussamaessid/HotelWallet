@@ -1,7 +1,7 @@
-package com.example.hotelwallet.data.mapper
+package com.example.hotel_wallet.data.mapper
 
+import com.example.hotel_wallet.domain.model.User
 import com.example.hotelwallet.data.model.UserDto
-import com.example.hotelwallet.domain.model.User
 import javax.inject.Inject
 
 class LoginMapper @Inject constructor() :

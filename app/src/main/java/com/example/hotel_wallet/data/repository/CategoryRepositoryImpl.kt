@@ -1,10 +1,10 @@
-package com.example.hotelwallet.data.repository
+package com.example.hotel_wallet.data.repository
 
-import com.example.hotelwallet.data.mapper.CategoryMapper
-import com.example.hotelwallet.data.source.remote.Api
-import com.example.hotelwallet.domain.model.Category
-import com.example.hotelwallet.domain.repository.CategoryRepository
-import com.example.hotelwallet.utility.Resource
+import com.example.hotel_wallet.data.mapper.CategoryMapper
+import com.example.hotel_wallet.domain.model.Category
+import com.example.hotel_wallet.domain.model.CategoryRepository
+import com.example.hotel_wallet.utility.Resource
+import com.example.hotel_wallet.data.source.remote.Api
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException
@@ -16,7 +16,7 @@ class CategoryRepositoryImpl @Inject constructor(
     private val categoryMapper: CategoryMapper,
 ) : CategoryRepository {
 
-    override suspend fun getCategories(category : String): Flow<Resource<List<Category>>> = flow {
+    override suspend fun getCategories(category: String): Flow<Resource<List<Category>>> = flow {
         try {
             emit(Resource.Loading)
             val categoriesResponse = categoryMapper.mapList(

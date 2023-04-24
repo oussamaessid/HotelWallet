@@ -1,8 +1,8 @@
 package com.example.hotel_wallet.domain.repository
 
 import com.example.hotel_wallet.utility.Resource
-import com.example.hotelwallet.data.model.MessageDto
-import com.example.hotelwallet.data.model.UserListResponse
+import com.example.hotel_wallet.data.model.MessageDto
+import com.example.hotel_wallet.data.model.UserListResponse
 import kotlinx.coroutines.flow.Flow
 
 interface LoginRepository {

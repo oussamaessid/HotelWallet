@@ -4,6 +4,8 @@
     <color name="colorPrimaryDark">#024662</color>
     <color name="colorAccent">#1c2a39</color>
 
+    <color name="mineShaft">#FF3D3D3D</color>
+    <color name="mineShaft75">#BF3D3D3D</color>
     <color name="colorWhite">#FFFFFFFF</color>
     <color name="colorTransparent">#FFFFFFFF</color>
     <color name="greyBackground">#FFf0f0f0</color>

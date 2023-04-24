@@ -1,4 +1,4 @@
-package com.example.hotelwallet.data.model
+package com.example.hotel_wallet.data.model
 
 data class UserListResponse(
     val access_token: String,

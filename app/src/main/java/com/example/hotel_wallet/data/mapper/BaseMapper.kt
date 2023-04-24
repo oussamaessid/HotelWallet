@@ -1,7 +1,4 @@
-package com.example.hotelwallet.data.mapper
-
-
-
+package com.example.hotel_wallet.data.mapper
 
 interface BaseMapper<FROM, TO> {
     fun map(from: FROM): TO

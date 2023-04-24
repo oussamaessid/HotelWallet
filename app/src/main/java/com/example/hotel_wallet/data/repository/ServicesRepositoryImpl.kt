@@ -1,10 +1,10 @@
-package com.example.hotelwallet.data.repository
+package com.example.hotel_wallet.data.repository
 
-import com.example.hotelwallet.data.mapper.ServiceMapper
-import com.example.hotelwallet.data.source.remote.Api
-import com.example.hotelwallet.domain.model.Services
-import com.example.hotelwallet.domain.repository.ServiceRepository
-import com.example.hotelwallet.utility.Resource
+import com.example.hotel_wallet.data.mapper.ServiceMapper
+import com.example.hotel_wallet.domain.model.Services
+import com.example.hotel_wallet.domain.repository.ServiceRepository
+import com.example.hotel_wallet.utility.Resource
+import com.example.hotel_wallet.data.source.remote.Api
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException

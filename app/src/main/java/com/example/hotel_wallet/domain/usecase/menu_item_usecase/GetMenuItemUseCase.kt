@@ -1,6 +1,6 @@
 package com.example.hotel_wallet.domain.usecase.menu_item_usecase
 
-import android.view.MenuItem
+import com.example.hotel_wallet.domain.model.MenuItem
 import com.example.hotel_wallet.domain.repository.MenuRepository
 import com.example.hotel_wallet.utility.Resource
 import kotlinx.coroutines.flow.Flow

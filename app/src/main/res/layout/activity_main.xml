@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".domain.model.presentation.misc.MainActivity">
+    tools:context=".presentation.misc.MainActivity">
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/mainNavHostContainer"
@@ -24,7 +24,6 @@
         android:layout_width="match_parent"
         android:visibility="gone"
         android:layout_height="100dp">
-
 
         <com.google.android.material.bottomappbar.BottomAppBar
             android:id="@+id/bottomAppBar"

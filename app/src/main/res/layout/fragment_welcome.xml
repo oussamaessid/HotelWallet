@@ -1,55 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/onBoardingMotion"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layoutDescription="@xml/fragment_welcome_on_boarding_scene"
-    tools:context=".domain.model.presentation.welcome.WelcomeFragment">
+    android:background="@color/colorCerulean"
+    tools:context=".presentation.welcome.WelcomeFragment">
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/viewPager"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/tabLayout"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnSkip"
-        app:tabBackground="@drawable/selector_tab_view_pager"
-        app:tabGravity="center"
-        app:tabIndicatorHeight="0dp" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnNext"
-        style="@style/HotelWalletButtonMain"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:text="@string/txt_btn_next"
-        android:textColor="@color/colorWhite"
-        app:backgroundTint="@color/colorCerulean"
-        app:layout_constraintBottom_toBottomOf="@+id/btnSkip"
-        app:layout_constraintEnd_toStartOf="@+id/btnSkip"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btnSkip" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnSkip"
-        style="@style/HotelWalletButtonMain"
+    <ImageView
+        android:id="@+id/img_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:src="@drawable/img_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_hello"
+        style="@style/TextViewStyle.Bold.64"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/txt_hello"
+        android:textAllCaps="true"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/img_logo" />
+
+    <TextView
+        android:id="@+id/txt_eat_and_meet"
+        style="@style/TextViewStyle.32"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/txt_hotel_wallet"
+        android:textAllCaps="true"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_hello" />
+
+    <TextView
+        android:id="@+id/txt_select_your_languages"
+        style="@style/TextViewStyle.18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/txt_select_your_languages"
+        android:textColor="@color/colorWhite"
+        app:layout_constraintBottom_toTopOf="@+id/btn_english"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_eat_and_meet" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_english"
+        style="@style/HotelWalletButtonMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginBottom="24dp"
-        android:text="@string/txt_btn_skip"
+        android:text="@string/txt_btn_english"
+        android:textColor="@color/colorCerulean"
+        app:backgroundTint="@color/colorWhite"
+        app:layout_constraintBottom_toTopOf="@+id/btn_arabic" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_arabic"
+        style="@style/HotelWalletButtonMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="24dp"
+        android:text="@string/txt_btn_arabic"
         android:textColor="@color/colorWhite"
         app:backgroundTint="@color/colorDoveGray"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent" />
 
-</androidx.constraintlayout.motion.widget.MotionLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

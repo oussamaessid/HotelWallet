@@ -1,6 +1,6 @@
-package com.example.hotelwallet.data.source.remote
+package com.example.hotel_wallet.data.source.remote
 
-import com.example.hotelwallet.data.model.MenuItemListResponse
+import com.example.hotel_wallet.data.model.MenuItemListResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 

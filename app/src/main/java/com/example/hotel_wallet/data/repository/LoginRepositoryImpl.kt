@@ -1,18 +1,15 @@
-package com.example.hotelwallet.data.repository
+package com.example.hotel_wallet.data.repository
 
 import android.util.Log
-import com.example.hotelwallet.data.mapper.LoginMapper
-import com.example.hotelwallet.data.mapper.MessageMapper
-import com.example.hotelwallet.data.model.MessageDto
-import com.example.hotelwallet.data.model.SignUpListResponse
-import com.example.hotelwallet.data.model.UserListResponse
-import com.example.hotelwallet.data.source.remote.Api
-import com.example.hotelwallet.domain.model.Login
-import com.example.hotelwallet.domain.model.Message
-import com.example.hotelwallet.domain.model.SignUp
-import com.example.hotelwallet.domain.model.User
-import com.example.hotelwallet.domain.repository.LoginRepository
-import com.example.hotelwallet.utility.Resource
+import com.example.hotel_wallet.data.mapper.LoginMapper
+import com.example.hotel_wallet.data.mapper.MessageMapper
+import com.example.hotel_wallet.data.model.MessageDto
+import com.example.hotel_wallet.data.model.UserListResponse
+import com.example.hotel_wallet.domain.model.Login
+import com.example.hotel_wallet.domain.model.SignUp
+import com.example.hotel_wallet.domain.repository.LoginRepository
+import com.example.hotel_wallet.utility.Resource
+import com.example.hotel_wallet.data.source.remote.Api
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException
@@ -25,16 +22,19 @@ class LoginRepositoryImpl @Inject constructor(
     private val messageMapper: MessageMapper
 ) : LoginRepository {
 
-    override suspend fun getLogin(email: String, password: String): Flow<Resource<UserListResponse>> = flow{
+    override suspend fun getLogin(
+        email: String,
+        password: String
+    ): Flow<Resource<UserListResponse>> = flow {
         val credentials = Login(email, password)
-        val response =  api.login(credentials)
-        Log.println(Log.ASSERT,"Response",response.toString())
+        val response = api.login(credentials)
+        Log.println(Log.ASSERT, "Response", response.toString())
 
         try {
             emit(Resource.Loading)
             if (response.body()?.status != null) {
                 val body = response.body()
-                Log.println(Log.ASSERT,"LoginResponse",body.toString())
+                Log.println(Log.ASSERT, "LoginResponse", body.toString())
                 if (body != null) {
                     emit(Resource.Success(body))
                 }
@@ -46,8 +46,12 @@ class LoginRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun signUp(name: String, email: String, password: String): Flow<Resource<MessageDto>> = flow {
-        val credentials = SignUp(name,email, password)
+    override suspend fun signUp(
+        name: String,
+        email: String,
+        password: String
+    ): Flow<Resource<MessageDto>> = flow {
+        val credentials = SignUp(name, email, password)
         val response = api.signUp(credentials)
         Log.println(Log.ASSERT, "regResponse", response.toString())
 

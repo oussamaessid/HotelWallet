@@ -1,7 +1,4 @@
-package com.example.hotelwallet.data.model
-
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+package com.example.hotel_wallet.data.model
 
 data class GymDto(
     val id: Int,

@@ -1,4 +1,4 @@
-package com.example.hotelwallet.data.source.local
+package com.example.hotel_wallet.data.source.local
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

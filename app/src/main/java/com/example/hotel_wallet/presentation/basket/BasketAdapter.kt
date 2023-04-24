@@ -7,7 +7,6 @@ import com.bumptech.glide.Glide
 import com.example.hotel_wallet.data.source.local.Basket
 import com.example.hotel_wallet.databinding.RowItemDetailBinding
 
-
 class BasketAdapter(
     private val menuList: List<Basket>,
     private val viewModel: BasketViewModel

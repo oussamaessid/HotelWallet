@@ -21,7 +21,6 @@ class BasketFragment : BaseFragment<FragmentBasketBinding>(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         basketViewModel.allFavorites
         detailMenuAdapter = BasketAdapter(emptyList(), basketViewModel)
         binding.recyclerViewSaved.setHasFixedSize(true)
@@ -36,11 +35,6 @@ class BasketFragment : BaseFragment<FragmentBasketBinding>(
             binding.totalCartPriceTextView.text = "Total: $$totalPrice"
         }
 
-
-//        basketViewModel.getAllShoppingItems().observe(requireActivity(), Observer {
-//            detailMenuAdapter.menuList = it
-//            detailMenuAdapter.notifyDataSetChanged()
-//        })
     }
 
     fun calculateTotalPrice(menuItems: List<Basket>): Int {

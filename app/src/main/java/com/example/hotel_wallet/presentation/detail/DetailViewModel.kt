@@ -22,7 +22,6 @@ class DetailViewModel @Inject constructor(
     private val _stateFavorite = MutableLiveData<Resource<List<MenuItem>>>()
     val stateFavorite: LiveData<Resource<List<MenuItem>>> get() = _stateFavorite
 
-
     fun getFavorite(category: String) {
         viewModelScope.launch {
             getFavoriteUseCase(category)

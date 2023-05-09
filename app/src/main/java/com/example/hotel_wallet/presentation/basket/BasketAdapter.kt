@@ -44,7 +44,6 @@ class BasketAdapter(
     inner class MenuViewHolder(val binding: RowItemDetailBinding) :
         RecyclerView.ViewHolder(binding.root)
 
-
 }
 
 
